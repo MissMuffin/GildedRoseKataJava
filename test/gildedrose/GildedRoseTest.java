@@ -28,8 +28,8 @@ public class GildedRoseTest {
 								"Once the SellDate has passed Quality decreases twice as fast",
 								"Item with arbitrary name", 0, 49, -1, 47 },
 						{
-								"The quality of n item is never negative",
-								"Item with arbitrary name", 1, 0, 0, -1 },
+								"The quality of n item is never negative. Quality should be -1.",
+								"Item with arbitrary name", 1, 0, 0, 0 },
 						{ 
 								"Aged Brie increases its value with every day",
 								"Aged Brie", 2, 0, 1, 1 },
@@ -51,6 +51,9 @@ public class GildedRoseTest {
 						{ 
 								"Conjured Mana Cake", 
 								"Conjured Mana Cake", 1, 49, 0, 47  },
+						{ 
+								"Conjured Mana Cake", 
+								"Conjured Mana Cake", -1, 49, -2, 45  },
 						{ 
 								"Backstage Passes increase by 2 when 10 days are left ",
 								"Backstage passes to a TAFKAL80ETC concert", 10, 30, 9, 32 },

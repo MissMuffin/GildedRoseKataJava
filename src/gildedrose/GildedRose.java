@@ -75,6 +75,9 @@ public class GildedRose {
 									i).getName())) {
 								items.get(i).setQuality(
 										items.get(i).getQuality() - 1);
+								if(((items.get(i).getName()).contains("Conjured"))){
+									items.get(i).setQuality(items.get(i).getQuality() - 1);
+									}
 							}
 						}
 					} else {
