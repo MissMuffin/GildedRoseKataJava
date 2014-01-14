@@ -50,7 +50,7 @@ public class GildedRoseTest {
 								"Backstage passes to a TAFKAL80ETC concert", 0,	49, -1, 0 },
 						{ 
 								"Conjured Mana Cake", 
-								"Conjured Mana Cake", 1, 49, 0, 47 },
+								"Conjured Mana Cake", 1, 49, 0, 47  },
 						{ 
 								"Backstage Passes increase by 2 when 10 days are left ",
 								"Backstage passes to a TAFKAL80ETC concert", 10, 30, 9, 32 },
