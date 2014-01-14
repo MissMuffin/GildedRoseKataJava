@@ -1,35 +1,36 @@
 package gildedrose;
 
-
 public class AgedBrieUQS extends UpdateQualityStrategy{
-
-	Item item;
-	int sellin;
-	int quality;
-
-	public AgedBrieUQS(Item item){
-		super(item);
-		this.item = item;
-		sellin = item.getSellIn();
-		quality = item.getQuality();
-		
-		
-	}
-
-	@Override
-	public void updateQuality(){
-		item.setSellIn(sellin - 1);
-		item.setQuality(quality + 1);
-
-		if(sellin < 0)
-			item.setQuality(quality + 1);
-		if(quality > 50)
-			item.setQuality(50);
-		
-		System.out.println(item.getName());
-
-
-	}
-
+	//fields are instantiated in super class
 	
-}
+		public AgedBrieUQS(Item item) {
+			super(item);
+		}
+
+		@Override
+		public void updateQuality(){
+
+			if(sellin > 0){
+				if(quality < 50){
+					quality = quality + 1;
+				}
+				//only needed if aged brie can't have more than 50  when hardcoded
+//				else if(quality >= 50){
+//					quality = 0;
+//				}
+				sellin--;
+			}else if(sellin <= 0){
+				if(quality < 50){
+					quality = quality + 2;
+				}
+				//same as above
+//				else if(quality >= 50){
+//					quality = 0;
+//				}
+				sellin--;
+			}
+			
+			item.setQuality(quality);
+			item.setSellIn(sellin);
+		}
+	}

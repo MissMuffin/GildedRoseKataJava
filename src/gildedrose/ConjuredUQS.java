@@ -1,29 +1,32 @@
 package gildedrose;
 
 public class ConjuredUQS extends UpdateQualityStrategy{
+	//fields are instantiated in super class
 	
-	Item item;
-	int sellin;
-	int quality;
-	
-	public ConjuredUQS(Item item){
+	public ConjuredUQS(Item item) {
 		super(item);
-		this.item = item;
-		sellin = item.getSellIn();
-		quality = item.getQuality();
 	}
-	
+
 	@Override
 	public void updateQuality(){
-		item.setSellIn(sellin - 1);
-		item.setQuality(quality - 2);
 
-		if(sellin < 0)
-			item.setQuality(quality - 2);
-		if(quality < 0)
-			item.setQuality(0);
+		if(sellin > 0){
+			if(quality > 1){
+				quality = quality - 2;
+			}else if(quality <= 1){
+				quality = 0;
+			}
+			sellin--;
+		}else if(sellin <= 0){
+			if(quality > 3){
+				quality = quality - 4;
+			}else if(quality <= 3){
+				quality = 0;
+			}
+			sellin--;
+		}
 		
+		item.setQuality(quality);
+		item.setSellIn(sellin);
 	}
-	
-	
 }

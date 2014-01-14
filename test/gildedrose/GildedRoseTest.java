@@ -28,8 +28,12 @@ public class GildedRoseTest {
 								"Once the SellDate has passed Quality decreases twice as fast",
 								"Item with arbitrary name", 0, 49, -1, 47 },
 						{
-								"The quality of n item is never negative. Quality should be -1.",
+								"The quality of n item is never negative. Quality should be 0.",
 								"Item with arbitrary name", 1, 0, 0, 0 },
+								
+						{		"The quality of n item is never negative. Quality should be 0. "
+								+ "Test with sellin <= 0",
+								"Item with arbitrary name", 0, 0, -1, 0 },
 						{ 
 								"Aged Brie increases its value with every day",
 								"Aged Brie", 2, 0, 1, 1 },
@@ -37,7 +41,7 @@ public class GildedRoseTest {
 								"Aged Brie increases its value by 2 after its SellDate",
 								"Aged Brie", 0, 0, -1, 2 },
 						{ 
-								"Normal items won't increase in Value after 50",
+								"Normal items (not legendary) won't increase in Value after 50",
 								"Aged Brie", 10, 50, 9, 50 },
 						{ 
 								"Elixir of the Mongoose", "Elixir of the Mongoose",
@@ -49,17 +53,24 @@ public class GildedRoseTest {
 								"Backstage Passes loose all value after their SellDate",
 								"Backstage passes to a TAFKAL80ETC concert", 0,	49, -1, 0 },
 						{ 
-								"Conjured Mana Cake", 
-								"Conjured Mana Cake", 1, 49, 0, 47  },
-						{ 
-								"Conjured Mana Cake", 
-								"Conjured Mana Cake", -1, 49, -2, 45  },
-						{ 
 								"Backstage Passes increase by 2 when 10 days are left ",
 								"Backstage passes to a TAFKAL80ETC concert", 10, 30, 9, 32 },
 						{ 
 								"Backstage Passes increase by 3 when 5 days are left ",
-								"Backstage passes to a TAFKAL80ETC concert", 2,	30, 1, 33 }
+								"Backstage passes to a TAFKAL80ETC concert", 2,	30, 1, 33 },
+						{ 
+								"Conjured items' quality decreases by 2 each day before sellin reaches 0", 
+								"Conjured Mana Cake", 1, 49, 0, 47  },
+						{ 
+								"Conjured items' quality decreases by 4 each day after sellin reaches 0", 
+								"Conjured Mana Cake", -1, 49, -2, 45  },
+						{ 
+								"Conjured items' quality should never be negative: Test before sellin is 0", 
+								"Conjured Mana Cake", 2, 1, 1, 0  },
+						{ 
+								"Conjured items' quality should never be negative: Test after sellin is 0", 
+								"Conjured Mana Cake", 0, 1, -1, 0  }
+						
 
 				}));
 		return data;
@@ -104,3 +115,7 @@ public class GildedRoseTest {
 	}
 
 }
+
+//git commit -m "modified GildedRose.java: carls hat updateQuality() nicht aufgerufen, unter der Schleife eingefuegt, carl wird jetzt ausserhalb der Methoden als field instanziiert |
+//modified UpdateQualityStrategy.java: item, quality, sellin werden jetzt in superclass instanziiert, body der Methode updateQuality() entfernt und Methode abstract gesetzt |
+//modified all UQS-items: ruft jetzt nur noch den superclass constructor auf, if-abfragen verändert"

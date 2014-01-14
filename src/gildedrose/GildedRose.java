@@ -6,6 +6,7 @@ import java.util.List;
 public class GildedRose {
 
 	private static List<Item> items = null;
+	static UpdateQualityStrategy carl;
 
 	/**
 	 * @param args
@@ -35,7 +36,7 @@ public class GildedRose {
 			
 			String name = item.getName();
 			
-			UpdateQualityStrategy carl;
+//			UpdateQualityStrategy carl;
 			
 			//System.out.println(i);
 
@@ -45,7 +46,7 @@ public class GildedRose {
 			}
 
 			else if(name.equals("Sulfuras, Hand of Ragnaros")){
-				//SulfurasUQS carl = new SulfurasUQS(item);
+				//legendary item's quality & sellin doesn't change
 			}
 
 			else if(name.equals("Backstage passes to a TAFKAL80ETC concert")){
@@ -61,6 +62,7 @@ public class GildedRose {
 			
 			
 		}
+		carl.updateQuality();
 	}
 
 	/*

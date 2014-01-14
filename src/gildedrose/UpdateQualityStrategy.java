@@ -1,16 +1,22 @@
 package gildedrose;
 
 abstract class UpdateQualityStrategy {
+	
+	Item item;
+	int sellin;
+	int quality;
 
 	public UpdateQualityStrategy(Item item) {
 		//createItem(item);
-		updateQuality();
+//		updateQuality();
 		//System.out.println(item.getName());
+		this.item = item;
+		sellin = item.getSellIn();
+		quality = item.getQuality();
+		
 	}
 
-	public void updateQuality(){
-		//nothing
-	}
+	abstract public void updateQuality();
 
 //	public void createItem(Item item){
 //		String name = item.getName();
