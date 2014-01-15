@@ -50,6 +50,9 @@ public class GildedRoseTest {
 								"Legendary Sulfuras SellDate doesn't count down and its value never changes",
 								"Sulfuras, Hand of Ragnaros", 5, 50, 5, 50 },
 						{ 
+								"Backstage Passes increase by 1 when more than 10 days are left",
+								"Backstage passes to a TAFKAL80ETC concert", 20, 40, 19, 41 },
+						{ 
 								"Backstage Passes loose all value after their SellDate",
 								"Backstage passes to a TAFKAL80ETC concert", 0,	49, -1, 0 },
 						{ 
