@@ -36,12 +36,8 @@ public class GildedRose {
 			
 			String name = item.getName();
 			
-//			UpdateQualityStrategy carl;
-			
-			//System.out.println(i);
 
 			if(name.equals("Aged Brie")){
-				//System.out.println("here");
 				carl = new AgedBrieUQS(item);
 			}
 
